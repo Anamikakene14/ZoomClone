@@ -1,0 +1,13 @@
+import mongoose, { Schema } from "mongoose";
+
+const userScheme = new Schema(
+    {
+        name:{ type: String, required: true },
+        username: { type: String, require: true, unique: true },
+        password: { type: String, require: true },
+        token: { type: String }
+    }
+)
+
+const User = mongoose.model("User", userScheme);
+export { User };
