@@ -15,7 +15,8 @@ const app = express();
 const server = createServer(app);
 const io = connectToSocket(server);
 
-app.set("port", (process.env.PORT || 8000))
+// app.set("port", (process.env.PORT || 8000))
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json({limit:"40kb"}));
@@ -28,9 +29,13 @@ const start = async() =>{
     const connectionDb = await mongoose.connect("mongodb+srv://Anamika01:anamika01@apnacallcluster.x6jfac8.mongodb.net/")
 
     console.log(`MONGO Connected DB Host: ${connectionDb.connection.host}`)
-    server.listen(app.get("port"),() =>{
-            console.log("Listing on port 8000");
-        });
+//     server.listen(app.get("port"),() =>{
+//             console.log("Listing on port 8000");
+//         });
+
+    server.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server is listening on port ${PORT}`);
+    });
 }
 
 start();
