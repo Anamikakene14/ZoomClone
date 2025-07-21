@@ -26,7 +26,7 @@ app.use("/api/v1/users",userRountes);
 
 const start = async() =>{
     app.set("mongo_user")
-    const connectionDb = await mongoose.connect("mongodb+srv://Anamika01:anamika01@apnacallcluster.x6jfac8.mongodb.net/")
+    const connectionDb = await mongoose.connect("")
 
     console.log(`MONGO Connected DB Host: ${connectionDb.connection.host}`)
 //     server.listen(app.get("port"),() =>{
